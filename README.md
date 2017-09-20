@@ -7,4 +7,4 @@ heroku apps:create server-venki-spb-ru
 git push heroku master
 
 ##read logs
-heroku logs --tail -a server-venki-spb-ru
+heroku logs --tail -a server-venki-spb-ru -n 1500
