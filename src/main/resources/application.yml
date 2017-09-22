@@ -6,5 +6,9 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: validate
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQL82Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
