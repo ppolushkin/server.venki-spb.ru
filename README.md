@@ -15,3 +15,6 @@ Go to Heroku database->settings->data base credentials and populate:
 JDBC_DATABASE_URL
 JDBC_DATABASE_USERNAME
 JDBC_DATABASE_PASSWORD
+
+###JDBC URL format
+jdbc:postgresql://host:port/database_name?sslmode=require
