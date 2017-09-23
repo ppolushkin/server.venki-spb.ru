@@ -18,3 +18,8 @@ JDBC_DATABASE_PASSWORD
 
 ###JDBC URL format
 jdbc:postgresql://host:port/database_name?sslmode=require
+
+###local database
+db name: venok
+user: venok
+password: venok

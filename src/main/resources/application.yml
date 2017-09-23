@@ -1,14 +1,17 @@
 spring:
-  datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
-      dialect: org.hibernate.dialect.PostgreSQL82Dialect
+      ddl-auto: validate
+      dialect: org.hibernate.dialect.PostgreSQL94Dialect
     properties:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
