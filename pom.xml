@@ -81,9 +81,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.2.0</version>
                 <configuration>
-                    <user>venok</user>
-                    <password>venok</password>
-                    <url>jdbc:postgresql://localhost:5432/venok</url>
+                    <user>venok1</user>
+                    <password>venok1</password>
+                    <url>jdbc:postgresql://localhost:5432/venok1</url>
                 </configuration>
             </plugin>
             <plugin>
