@@ -7,6 +7,10 @@ import ru.venkispb.server.repository.PagesRepository;
 import ru.venkispb.server.repository.RevisionsRepository;
 import ru.venkispb.server.vo.Page;
 
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class PagesService {
 
@@ -19,18 +23,21 @@ public class PagesService {
         this.revisionsRepository = revisionsRepository;
     }
 
-    public Page getPage(String applicationId, String pageReference) {
+    public List<Page> getPages(String applicationId) {
+        return pagesRepository.findByApplicationName(applicationId).stream().
+                map(Page::of).collect(toList());
+    }
 
-        PagesEntity pagesEntity = pagesRepository.findByReferenceAndApplicationName(pageReference, applicationId).
+    public Page getPage(String applicationId, String pageReference) {
+        PagesEntity pagesEntity = pagesRepository.findByApplicationNameAndReference(applicationId, pageReference).
                 orElseThrow(NotFoundRuntimeException::new);
 
-        Page page = new Page();
+        Page page = Page.of(pagesEntity);
 
-        page.reference = pagesEntity.reference;
-        page.title = pagesEntity.title;
+        page.content = revisionsRepository.findByPageId(pagesEntity.id).
+                map(r -> r.content).orElse("No content on that page");
 
         return page;
-
     }
 
 

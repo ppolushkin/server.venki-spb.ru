@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.venkispb.server.service.PagesService;
 import ru.venkispb.server.vo.Page;
 
+import java.util.List;
+
+import static java.util.Comparator.comparing;
+
 @RestController
 @RequestMapping("/{application}/pages")
 public class PagesController {
@@ -15,6 +19,13 @@ public class PagesController {
 
     public PagesController(PagesService pagesService) {
         this.pagesService = pagesService;
+    }
+
+    @GetMapping
+    public List<Page> getApplicationPages(@PathVariable String application) {
+        List<Page> pages = pagesService.getPages(application);
+        pages.sort(comparing(p -> p.reference));
+        return pages;
     }
 
     @GetMapping(value = "/{reference}")
