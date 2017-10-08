@@ -1,7 +1,7 @@
 package ru.venkispb.server.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import ru.venkispb.server.entity.Admin;
+import ru.venkispb.server.entity.AdminsEntity;
 
-public interface AdminRepository extends PagingAndSortingRepository<Admin, Long> {
+public interface AdminRepository extends PagingAndSortingRepository<AdminsEntity, Long> {
 }

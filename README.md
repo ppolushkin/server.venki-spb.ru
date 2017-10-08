@@ -23,3 +23,6 @@ jdbc:postgresql://host:port/database_name?sslmode=require
 db name: venok
 user: venok
 password: venok
+
+###How can I generate entities classes from database using Spring Boot and IntelliJ Idea?
+https://stackoverflow.com/questions/36995670/how-can-i-generate-entities-classes-from-database-using-spring-boot-and-intellij

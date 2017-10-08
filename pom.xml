@@ -50,11 +50,11 @@
             <version>2.6.1</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>4.2.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.flywaydb</groupId>-->
+            <!--<artifactId>flyway-core</artifactId>-->
+            <!--<version>4.2.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-parameter-names</artifactId>
@@ -76,16 +76,16 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>4.2.0</version>
-                <configuration>
-                    <user>venok1</user>
-                    <password>venok1</password>
-                    <url>jdbc:postgresql://localhost:5432/venok1</url>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.flywaydb</groupId>-->
+                <!--<artifactId>flyway-maven-plugin</artifactId>-->
+                <!--<version>4.2.0</version>-->
+                <!--<configuration>-->
+                    <!--<user>venok1</user>-->
+                    <!--<password>venok1</password>-->
+                    <!--<url>jdbc:postgresql://localhost:5432/venok1</url>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

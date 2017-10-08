@@ -1,25 +1,26 @@
 package ru.venkispb.server.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "admins")
-public class Admin {
+public class AdminsEntity {
 
     @Id
     @SequenceGenerator(name="admins_id_seq",sequenceName="admins_id_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="admins_id_seq")
-    public Integer id;
+    public int id;
 
     public String email;
 
-    public String password_hash;
+    public String passwordHash;
 
-    public LocalDateTime created_at;
+    public LocalDateTime createdAt;
 
-    public LocalDateTime updated_at;
+    public LocalDateTime updatedAt;
 
-    public Boolean receive_emails;
+    public boolean receiveEmails;
 
 }
