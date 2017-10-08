@@ -140,16 +140,6 @@ create table revisions
 )
 ;
 
-create table schema_migrations
-(
-	version varchar(255) not null
-)
-;
-
-create unique index unique_schema_migrations
-	on schema_migrations (version)
-;
-
 create table tapes
 (
 	id serial not null
@@ -164,25 +154,3 @@ create table tapes
 	updated_at timestamp not null
 )
 ;
-
-create table schema_version
-(
-	installed_rank integer not null
-		constraint schema_version_pk
-			primary key,
-	version varchar(50),
-	description varchar(200) not null,
-	type varchar(20) not null,
-	script varchar(1000) not null,
-	checksum integer,
-	installed_by varchar(100) not null,
-	installed_on timestamp default now() not null,
-	execution_time integer not null,
-	success boolean not null
-)
-;
-
-create index schema_version_s_idx
-	on schema_version (success)
-;
-
