@@ -1,9 +1,7 @@
 package ru.venkispb.server.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import ru.venkispb.server.service.PagesService;
 import ru.venkispb.server.vo.Page;
 
@@ -31,6 +29,23 @@ public class PagesController {
     @GetMapping(value = "/{reference}")
     public Page getPage(@PathVariable String application, @PathVariable String reference) {
         return pagesService.getPage(application, reference);
+    }
+
+    @PutMapping(value = "/{reference}")
+    public Page updatePage(@PathVariable String application, @PathVariable String reference,
+                           @RequestBody Page page) {
+        return pagesService.updatePage(application, reference, page);
+    }
+
+    @PostMapping
+    public Page createPage(@PathVariable String application, @RequestBody Page page) {
+        return pagesService.createPage(application, page);
+    }
+
+    @DeleteMapping(value = "/{reference}")
+    public ResponseEntity deletePage(@PathVariable String application, @PathVariable String reference) {
+        pagesService.deletePage(application, reference);
+        return ResponseEntity.ok().build();
     }
 
 }
