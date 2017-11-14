@@ -12,4 +12,6 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
   datasource:
-    url: ${COMMON_DATABASE_URL1}
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
