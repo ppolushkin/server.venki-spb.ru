@@ -31,6 +31,19 @@ public class PagesController {
         return pagesService.getPage(application, reference);
     }
 
+    @GetMapping(path = "/{reference}/content", produces = "text/plain")
+    public String getPageContent(@PathVariable String application, @PathVariable String reference) {
+        return pagesService.getPage(application, reference).content;
+    }
+
+    @PutMapping(path = "/{reference}/content", consumes = "text/plain")
+    public ResponseEntity updatePageContent(@PathVariable String application, @PathVariable String reference, @RequestBody String content) {
+        Page page = pagesService.getPage(application, reference);
+        page.content = content;
+        pagesService.updatePage(application, reference, page);
+        return ResponseEntity.ok().build();
+    }
+
     @PutMapping(value = "/{reference}")
     public Page updatePage(@PathVariable String application, @PathVariable String reference,
                            @RequestBody Page page) {
